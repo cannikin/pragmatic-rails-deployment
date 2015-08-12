@@ -10,14 +10,16 @@ There's also the if-you-don't-use-this-new-tool-you'll-regret-it advice and how-
 
 What I'm presenting in this book is a no-nonsense approach to getting your web app online with a minimum of ceremony and complexity. Does [Chef](http://chef.io) have it's place? Absolutely. But Chef's learning curve is like walking up to the base of El Capitan. Unless you're deploying and maintaining dozens or hundreds of servers (like Facebook) I don't think that learning curve is worth it just to get your brand new app (with zero users) available to the world. As a former collegue was fond of saying: the juice isn't worth the squeeze. (Don't feel bad if you don't know what Chef is. We'll be discussing that and many more common, but at times unnecessary, deployment tools.)
 
-That being said, your app should be prepared for reasonable growth and disasters.
+That being said, your app should be prepared for reasonable growth and disaster recover:
 
 * One of your app servers suddenly dies
-* A junior developer accidentally executes a `DELETE FROM users;` SQL query
+* A junior developer accidentally runs `DELETE FROM users;` against production
 * Your launch makes it to the front page of Hacker News
-* An image on your homepage suddenly becomes the next great meme
+* An image on your homepage suddenly becomes the [next great meme](http://cdn.meme.am/instances/500x/17349069.jpg)
 
-Your site must remain available and serving users with a minimum of downtime (ideally none). The setup and deployment I discuss will keep you up in all of these scenarios, and more. You may even start to think up increasingly unlikely disaster scenarios (the transatlantic internet cable is severed by a rogue submarine at the same time a zombie outbreak hits the east coast of the United States!) and try to figure out ways to keep your site up. This is possible within the AWS infrastructure, although I won't have the room in this book to discuss the ramifications of the undead taking over multiple Amazon data centers, sorry.
+Your site must remain available and serving users with a minimum of downtime (ideally none). The setup and deployment I discuss will keep you up in all of these scenarios, and more. 
+
+You may start to think up increasingly unlikely disaster scenarios (the [transatlantic communcations cables](http://en.wikipedia.org/wiki/Transatlantic_communications_cable) are severed by a rogue submarine at the same time a zombie outbreak hits the east coast of the United States!) and try to figure out how to keep your site up. This is possible within the AWS infrastructure, although I won't have the room in this book to discuss the ramifications of the undead taking over multiple Amazon data centers. Sorry.
 
 ## Why you should trust me
 

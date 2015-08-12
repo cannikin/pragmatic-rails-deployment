@@ -6,7 +6,7 @@ Hello, world! The purpose of this book is to get your Ruby on Rails web app up a
 
 I think Infrastructure-as-a-Service, and AWS in particular, is one of the most profound changes in technology since the internet itself. Suddenly everyone has access to world-class hardware for literally pennies per hour. But like any new technology it's still somewhat like the wild, wild west: everyone has their own way to do things and conflicting information abounds.
 
-There's also the if-you-don't-use-this-new-tool-you'll-regret-it advice and how-the-big-guys-do-it blog posts. People get caught up in the hype when Facebook discusses their platform and how they deploy—"if you're not using X deploy tool then your app isn't **web scale**!" But honestly, is your current project going to need to scale to Facebook levels in the near future? Probably not. Save yourself days and weeks of struggling to learn the latest and greatest deploy tools that were written by and for people with much different problems to solve than you have (or may ever have).
+There's also the if-you-don't-use-this-new-tool-you'll-regret-it advice and how-the-big-guys-do-it blog posts. People get caught up in the hype when Facebook discusses their platform and how they deploy and blog posts covering these posts willd declare "if you're not using Facebook's new deploy tool then your app isn't **web scale**!" But honestly, is your current project going to need to scale to Facebook levels in the near future? Probably not. Save yourself days and weeks of struggling to learn the latest and greatest deploy tools that were written by and for people with much different problems to solve than you have (or may ever have).
 
 What I'm presenting in this book is a no-nonsense approach to getting your web app online with a minimum of ceremony and complexity. Does [Chef](http://chef.io) have it's place? Absolutely. But Chef's learning curve is like walking up to the base of El Capitan. Unless you're deploying and maintaining dozens or hundreds of servers (like Facebook) I don't think that learning curve is worth it just to get your brand new app (with zero users) available to the world. As a former collegue was fond of saying: the juice isn't worth the squeeze. (Don't feel bad if you don't know what Chef is. We'll be discussing that and many more common, but at times unnecessary, deployment tools.)
 
@@ -30,6 +30,8 @@ I've been deploying RoR applications in production since 2006 and have lived thr
 I've been in charge of maintaining apps with one user (myself) to apps serving millions.
 
 I'm a full-time contract Web Developer (Software Engineer, Computer Programmer, pick your title) and a smattering of Dev Ops usually comes with the territory. I've found that when you start with a solid infrastructure setup then the dev ops part of the job takes care of itself for the most part.
+
+I've developed this deployment strategy over many years of hard-won experience deploying to bare metal and then eventually AWS beginning in 2008. Once I found AWS I haven't looked back.
 
 ## What about Heroku?
 
@@ -55,18 +57,32 @@ Of course with great power comes great responsbility: you could completely disab
 
 ## What you'll learn
 
-* Amazon Web Service account management and setup
+We'll cover plenty of ground in this book, almost all of which may be new to you if you've never deployed a Rails (or any other) app to a production environment. We'll also cover installing some services that you may not have considered when developing locally but can quickly become essential to keep your app performing like a champ (like an in-memory cache and background job processor).
+
+We'll cover:
+
+* Amazon Web Service account setup
+* Using the AWS Console to manage your services
 * Preparing your Rails app for deployment
-* Scaling strategies
-* High availability with AWS
+* Web server (nginx) setup and configuration
+* App server (unicorn) setup and configuration
+* In-memory cache (memcached) setup and configuration
+* Background processing (Delayed Job) setup and configuration
+* Third-party email service (Mandrill) setup and configuration
+* Deploying and rolling back your code
+* Performance and load testing
+* Scaling strategies and high availability with AWS
+* Continuous delivery/deployment
 
 ## What I assume you already know
 
-* Basic git commands and usage
-* Ruby
-* Rails
-* Basic Linux competency (changing directories, creating files, file ownership)
-* How the internet works (what DNS does, the request/response cycle, what HTTP headers are used for)
+I assume you're a software developer familiar with the web but don't assume you have production deployment experience. Some topics you should be familiar with:
+
+* Basic git commands and usage—staging and committing changes, pushing and pulling to/from a repo
+* GitHub repo management and access to the repo containing the code you're going to deploy (in reality you can deploy from anywhere, even a local codebase, but most people will probably be using GitHub)
+* Ruby and Rails
+* Basic Linux competency—changing directories, creating and editing text files, file permissions
+* How the internet works—DNS basics, the request/response cycle, what HTTP headers are used for
 
 ## Thanks
 
@@ -74,7 +90,7 @@ I'd like to give a thanks to my friend Tom Preston-Werner for proofreading, edit
 
 ## Contacting Me
 
-If you have feedback, found errors or have questions about topics you felt weren't thoroughly discussed in the book, get in touch at cannikinn@gmail.com. You can find me at GitHub as [cannkin](http://github.com/cannikin).
+If you have feedback, found errors or have questions about topics you felt weren't thoroughly discussed in the book, get in touch at cannikinn@gmail.com. You can find me and lots of my code at GitHub as [cannkin](http://github.com/cannikin).
 
 Also: write and let me know what you deployed! 
 

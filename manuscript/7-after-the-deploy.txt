@@ -1,0 +1,4 @@
+# After the Deploy
+
+* performance testing
+* load balancing

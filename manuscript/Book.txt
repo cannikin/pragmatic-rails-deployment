@@ -1,2 +1,10 @@
-chapter1.txt
-chapter2.txt
+0-introduction.txt
+1-the-rails-app.txt
+2-welcome-to-aws.txt
+3-starting-services.txt
+4-configuring-your-server.txt
+5-configuring-your-application.txt
+6-deployment.txt
+7-after-the-deploy.txt
+8-support-services.txt
+9-planning-for-the-future.txt

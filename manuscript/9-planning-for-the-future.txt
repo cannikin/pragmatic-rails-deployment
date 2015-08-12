@@ -1,0 +1,8 @@
+# Planning for the Future
+
+* QA, staging environments
+* bigger EC2 instances
+* bigger RDS, multi-AZ
+* global load balancing, Route53
+* costs, reserved instances
+* chef, ansible, dev ops

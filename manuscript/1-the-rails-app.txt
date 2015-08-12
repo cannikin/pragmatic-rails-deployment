@@ -1,0 +1,8 @@
+# The Rails App
+
+* Overview of a simple blogging app
+  * Can upload images (to include S3 + CloudFront)
+  * memcached
+* What state it should be in before we begin
+* Github setup, ssh keys
+* ruby-install, chruby

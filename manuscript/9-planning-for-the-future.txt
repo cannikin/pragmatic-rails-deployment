@@ -1,6 +1,6 @@
 # Planning for the Future
 
-* QA, staging environments
+* Additional environments, qa, staging
 * bigger EC2 instances
 * bigger RDS, multi-AZ
 * global load balancing, Route53

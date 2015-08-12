@@ -44,9 +44,9 @@ So what are the downsides? For me:
 
 Heroku is free as long as you're running one "dyno" (somewhat equivelent to an AWS "compute unit," which we'll talk about later). As soon as you need more than one dyno, or a database, or memcached running somewhere, you start paying for it. Check out their [pricing calculator](http://heroku.com/pricing). 
 
-It's tough to get a perfect one-to-one comparison to AWS equivelent offerings, but (as of August 2015) for a 1x dyno, Postgres database and 500MB Redis instance pricing _starts_ at $195/month. A similar setup on AWS (a t2.micro [EC2 server](http://aws.amazon.com/ec2/pricing), t2.micro [RDS instance](http://aws.amazon.com/rds/pricing) and t2.micro [Elasticache instance](http://aws.amazon.com/elasticache/pricing)) is free for the first year, and after that it's $35/month. (We'll get into what all these acronyms and services mean soon.)
+It's tough to get a perfect one-to-one comparison to AWS equivelent offerings, but (as of August 2015) for a 1x dyno, Postgres database and 500MB Redis instance pricing _starts_ at $195/month. A similar setup[^awsservers] on AWS is free for the first _year_. A lot can happen in the first year of your app's life and when you're just starting you probably have much better ways to spend $200 a month. Oh, and after that first free year, those same servers would run you $35/month.
 
-Now, Heroku is a full platform and includes support. With AWS you're running on (almost) bare metal—if something goes wrong it's up to you to fix it. You can pay for [dedicated support](http://aws.amazon.com/premiumsupport) from Amazon for $49/month, but if you set things up correctly and get a little experience with Linux you shouldn't need it. (Although even with their support cost, it still comes in at less per month than Heroku.)
+Now, Heroku is a full platform and includes support. With AWS you're running on (almost) bare metal—if something goes wrong it's up to you to fix it. You can pay for [dedicated support](http://aws.amazon.com/premiumsupport) from Amazon for $49/month, but if you set things up correctly and get a little experience with Linux you shouldn't need it. (Although even with their support cost, AWS still comes in at a lot less per month than Heroku.)
 
 ### Flexibility
 
@@ -78,3 +78,5 @@ I'd like to give a thanks to my friend Tom Preston-Werner for proofreading, edit
 ## Contacting Me
 
 If you have feedback or questions about topics you felt weren't throughally discussed in the book, get in touch at cannikinn@gmail.com. Also let me know what deployed! You can find me at GitHub as [cannkin](http://github.com/cannikin).
+
+[^awsservers]: A t2.micro [EC2 server](http://aws.amazon.com/ec2/pricing), a t2.micro [RDS instance](http://aws.amazon.com/rds/pricing) and a t2.micro [Elasticache instance](http://aws.amazon.com/elasticache/pricing).

@@ -74,6 +74,8 @@ I'd like to give a thanks to my friend Tom Preston-Werner for proofreading, edit
 
 ## Contacting Me
 
-If you have feedback or questions about topics you felt weren't throughally discussed in the book, get in touch at cannikinn@gmail.com. Also let me know what deployed! You can find me at GitHub as [cannkin](http://github.com/cannikin).
+If you have feedback, found errors or have questions about topics you felt weren't thoroughly discussed in the book, get in touch at cannikinn@gmail.com. You can find me at GitHub as [cannkin](http://github.com/cannikin).
+
+Also: write and let me know what you deployed! 
 
 [^awsservers]: A t2.micro [EC2 server](http://aws.amazon.com/ec2/pricing), a t2.micro [RDS instance](http://aws.amazon.com/rds/pricing) and a t2.micro [Elasticache instance](http://aws.amazon.com/elasticache/pricing).

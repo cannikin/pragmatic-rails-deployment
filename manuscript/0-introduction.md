@@ -6,9 +6,9 @@ Hello, world! The purpose of this book is to get your Ruby on Rails web app up a
 
 I think Infrastructure-as-a-Service, and AWS in particular, is one of the most profound changes in technology since the internet itself. Suddenly everyone has access to world-class hardware for literally pennies per hour. But like any new technology it's still somewhat like the wild, wild west: everyone has their own way to do things and conflicting information abounds.
 
-There's also the if-you-don't-use-this-new-tool-you'll-regret-it advice and how-the-big-guys-do-it blog posts. People get caught up in the hype when Facebook discusses their platform and how they deploy—"if you're not using X deploy tool then your app isn't **web scale**!" But honestly, is your currect project going to need to scale to Facebook levels in the near future? Probably not. Save yourself days and weeks of struggling to learn the latest and greatest deploy tools that were written by and for people with much different problems to solve than you have (or may ever have).
+There's also the if-you-don't-use-this-new-tool-you'll-regret-it advice and how-the-big-guys-do-it blog posts. People get caught up in the hype when Facebook discusses their platform and how they deploy—"if you're not using X deploy tool then your app isn't **web scale**!" But honestly, is your current project going to need to scale to Facebook levels in the near future? Probably not. Save yourself days and weeks of struggling to learn the latest and greatest deploy tools that were written by and for people with much different problems to solve than you have (or may ever have).
 
-What I'm presenting in this book is a no-nonsense approach to getting your web app online with a minimum of ceremony and complexity. Does [Chef](https://www.chef.io/) have it's place? Absolutely. But Chef's learning curve is like walking up to the base of El Capitan. Unless you're deploying and maintaining dozens or hundreds of servers (like Facebook) I don't think that learning curve is worth it just to get your brand new app (with zero users) available to the world. As a former collegue was fond of saying: the juice isn't worth the squeeze. (Don't feel bad if you don't know what Chef is. We'll be discussing that and many more common, but at times unnecessary, deployment tools.)
+What I'm presenting in this book is a no-nonsense approach to getting your web app online with a minimum of ceremony and complexity. Does [Chef](http://chef.io) have it's place? Absolutely. But Chef's learning curve is like walking up to the base of El Capitan. Unless you're deploying and maintaining dozens or hundreds of servers (like Facebook) I don't think that learning curve is worth it just to get your brand new app (with zero users) available to the world. As a former collegue was fond of saying: the juice isn't worth the squeeze. (Don't feel bad if you don't know what Chef is. We'll be discussing that and many more common, but at times unnecessary, deployment tools.)
 
 That being said, your app should be prepared for reasonable growth and disasters.
 
@@ -40,11 +40,11 @@ So what are the downsides? For me:
 
 ### Cost
 
-Heroku is free as long as you're running one "dyno" (somewhat equivelent to an AWS "compute unit," which we'll talk about later). As soon as you need more than one dyno, or a database, or memcached running somewhere, you start paying for it. Check out their [pricing calculator](https://www.heroku.com/pricing). 
+Heroku is free as long as you're running one "dyno" (somewhat equivelent to an AWS "compute unit," which we'll talk about later). As soon as you need more than one dyno, or a database, or memcached running somewhere, you start paying for it. Check out their [pricing calculator](http://heroku.com/pricing). 
 
-It's tough to get a perfect one-to-one comparison to AWS equivelent offerings, but (as of August 2015) for a 1x dyno, Postgres database and 500MB Redis instance pricing _starts_ at $195/month. A similar setup on AWS (a t2.micro [EC2 server](https://aws.amazon.com/ec2/pricing), t2.micro [RDS instance](https://aws.amazon.com/rds/pricing) and t2.micro [Elasticache instance](https://aws.amazon.com/elasticache/pricing)) is free for the first year, and after that it's $35/month. (We'll get into what all these acronyms and services mean soon.)
+It's tough to get a perfect one-to-one comparison to AWS equivelent offerings, but (as of August 2015) for a 1x dyno, Postgres database and 500MB Redis instance pricing _starts_ at $195/month. A similar setup on AWS (a t2.micro [EC2 server](http://aws.amazon.com/ec2/pricing), t2.micro [RDS instance](http://aws.amazon.com/rds/pricing) and t2.micro [Elasticache instance](http://aws.amazon.com/elasticache/pricing)) is free for the first year, and after that it's $35/month. (We'll get into what all these acronyms and services mean soon.)
 
-Now, Heroku is a full platform and includes support. With AWS you're running on (almost) bare metal—if something goes wrong it's up to you to fix it. You can pay for dedicate support from Amazon for $100/month, but if you set things up correctly and get a little experience with Linux you shouldn't need it. (Although even with their support cost, it still comes in at less per month than Heroku.)
+Now, Heroku is a full platform and includes support. With AWS you're running on (almost) bare metal—if something goes wrong it's up to you to fix it. You can pay for [dedicated support](http://aws.amazon.com/premiumsupport) from Amazon for $49/month, but if you set things up correctly and get a little experience with Linux you shouldn't need it. (Although even with their support cost, it still comes in at less per month than Heroku.)
 
 ### Flexibility
 
@@ -75,4 +75,4 @@ I'd like to give a thanks to my friend Tom Preston-Werner for proofreading, edit
 
 ## Contacting Me
 
-If you have feedback or questions about topics you felt weren't throughally discussed in the book, get in touch at [cannikinn@gmail.com](mailto:cannikinn@gmail.com). Also let me know what deployed! You can find me at GitHub as [cannkin](http://github.com/cannikin).
+If you have feedback or questions about topics you felt weren't throughally discussed in the book, get in touch at cannikinn@gmail.com. Also let me know what deployed! You can find me at GitHub as [cannkin](http://github.com/cannikin).

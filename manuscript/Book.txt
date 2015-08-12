@@ -1,4 +1,4 @@
-0-introduction.txt
+0-introduction.md
 1-the-rails-app.txt
 2-welcome-to-aws.txt
 3-starting-services.txt

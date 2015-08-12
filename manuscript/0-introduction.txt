@@ -1,6 +1,0 @@
-# Introduction
-
-* Why I wrote this book
-* What about Heroku?
-* What you'll learn
-* What I assume you know

@@ -73,6 +73,7 @@ We'll cover:
 * Performance and load testing
 * Scaling strategies and high availability with AWS
 * Continuous delivery/deployment
+* Tools to monitor your app's performance (New Relic) and errors (Sentry) once live
 
 ## What I assume you already know
 

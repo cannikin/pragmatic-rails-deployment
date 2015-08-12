@@ -4,5 +4,7 @@
   * Can upload images (to include S3 + CloudFront)
   * memcached
 * What state it should be in before we begin
+  * Config in environment variables
+  * dotenv
 * Github setup, ssh keys
 * ruby-install, chruby

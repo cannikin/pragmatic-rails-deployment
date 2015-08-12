@@ -6,3 +6,4 @@
 * global load balancing, Route53
 * costs, reserved instances
 * chef, ansible, dev ops
+* CloudSearch

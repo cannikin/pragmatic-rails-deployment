@@ -35,10 +35,7 @@ I'm a full-time contract Web Developer (Software Engineer, Computer Programmer, 
 
 [Heroku](http://heroku.com) is an amazing service and changed how sites are deployed and maintained forever. If you're developing an app and just need to get it live quickly, Heroku is tough to beat. The AWS deployment you'll learn about in this book may take a day or more the first time you try it (but will probably be reduced to an hour or two once you get the hang of it). Heroku can be deployed in _minutes_, even your first deploy. If you need to get live fast, by all mean go with Heroku.
 
-So what are the downsides? For me:
-
-* Cost
-* Flexibility
+So what are the downsides? For me it's cost and flexibility.
 
 ### Cost
 

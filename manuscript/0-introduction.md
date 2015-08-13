@@ -21,7 +21,7 @@ That being said, your app should be prepared for reasonable growth and disaster 
 
 Your site must remain available and serving users with a minimum of downtime (ideally none). The setup and deployment I discuss will keep you up in all of these scenarios, and more. 
 
-W> High availability can become an adventure all on its own. You may start thinking up increasingly unlikely disaster scenarios (the [transatlantic communcations cables](http://en.wikipedia.org/wiki/Transatlantic_communications_cable) are severed by a rogue submarine at the same time a zombie outbreak hits the east coast of the United States!) and come up with more and more creative solutions keep your site up. Keeping your site available in the face of this particular combination of unlikey events is actually possible within the AWS infrastructure! However, I won't have the room in this book to discuss the social and political ramifications of the undead and their insatiable hunger for brains. Sorry.
+W> High availability can become an adventure all on its own. You may start thinking up increasingly unlikely disaster scenarios (the [transatlantic communcations cables](http://en.wikipedia.org/wiki/Transatlantic_communications_cable) are severed by a rogue submarine at the same time a zombie outbreak hits the east coast of the United States!) and come up with more and more creative solutions keep your site up. Keeping your site available in the face of this particular combination of unlikey events is actually possible within the AWS infrastructure! However, I won't have the room in this book to discuss the social and political ramifications of the undead and their insatiable hunger for brains.
 
 So, this book is not claiming to be the One True Way™ to deploy your app. More like A Way that Works Great in Many Real World Scenarios™.
 
@@ -94,7 +94,7 @@ I assume you're a software developer familiar with the web but don't assume you 
 
 I'd like to give a thanks to my friend Tom Preston-Werner for proofreading, editing and advice when writing this book. And thanks to you for (hopefully) paying for and reading it!
 
-## Contacting Me
+## Get in touch
 
 If you have feedback, found errors or have questions about topics you felt weren't thoroughly discussed in the book, get in touch at cannikinn@gmail.com. You can find me and lots of my code at GitHub as [cannkin](http://github.com/cannikin).
 

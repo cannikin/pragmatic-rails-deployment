@@ -8,3 +8,4 @@
 * Create a CloudFront distribution
 * Create an Elasticache instance
 * IAM
+* DNS configuration

@@ -8,3 +8,4 @@
   * require 'capistrano3/unicorn'
   * require 'capistrano/rails_tail_log'
 * Linked dirs, files
+* force_ssl

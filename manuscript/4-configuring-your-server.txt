@@ -11,3 +11,4 @@
 * server setup script: https://gist.github.com/cannikin/7d0834bc3814865a47df
 * prompt hostname
 * MOTD
+* SSL

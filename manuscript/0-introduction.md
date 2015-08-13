@@ -8,9 +8,9 @@ This book is geared towards the developer that has never deployed to production 
 
 I think Infrastructure-as-a-Service, and AWS in particular, is one of the most profound changes in technology since the internet itself. Suddenly everyone has access to world-class hardware for literally pennies per hour. But like any new technology it's still somewhat like the wild, wild west: everyone has their own way to do things and conflicting information abounds.
 
-There's also the if-you-don't-use-this-new-tool-you'll-regret-it advice and how-the-big-guys-do-it blog posts. People get caught up in the hype when Facebook discusses their platform and how they deploy and blog posts covering these posts willd declare "if you're not using Facebook's new deploy tool then your app isn't **web scale**!" But honestly, is your current project going to need to scale to Facebook levels in the near future? Probably not. Save yourself days and weeks of struggling to learn the latest and greatest deploy tools that were written by and for people with much different problems to solve than you have (or may ever have).
+Then there's the _if you don't use this new tool you'll regret it_ advice and _how-the-big-guys-do-it_ blog posts. People get caught up in the hype when Facebook discusses their platform and how they deploy. When others blog and  cover these posts would declare "if you're not using Facebook's new deploy tool then your app isn't **web scale**!" But honestly, is your current project going to need to scale to Facebook levels in the near future? Probably not. Save yourself days and weeks of struggling to learn the latest and greatest deploy tools that were written by and for people with much different problems to solve than you have (or may ever have).
 
-What I'm presenting in this book is a no-nonsense approach to getting your web app online with a minimum of ceremony and complexity. Does [Chef](http://chef.io) have it's place? Absolutely. But Chef's learning curve is like walking up to the base of El Capitan. Unless you're deploying and maintaining dozens or hundreds of servers (like Facebook) I don't think that learning curve is worth it just to get your brand new app (with zero users) available to the world. As a former collegue was fond of saying: the juice isn't worth the squeeze. (Don't feel bad if you don't know what Chef is. We'll be discussing that and many more common, but at times unnecessary, deployment tools.)
+What I'm presenting in this book is a no-nonsense approach to getting your web app online with a minimum of ceremony and complexity. Does [Chef](http://chef.io) have it's place? Absolutely. But Chef's learning curve is like walking up to the base of El Capitan. Unless you're deploying and maintaining dozens or hundreds of servers (like Facebook) I don't think that learning curve is worth it just to get your brand new app (with zero users) available to the world. As a former collegue was fond of saying: the juice isn't worth the squeeze. (Don't feel bad if you don't know what Chef is yet. We'll be discussing that and many more common, but at times unnecessary, deployment tools.)
 
 That being said, your app should be prepared for reasonable growth and disaster recover:
 
@@ -21,7 +21,9 @@ That being said, your app should be prepared for reasonable growth and disaster 
 
 Your site must remain available and serving users with a minimum of downtime (ideally none). The setup and deployment I discuss will keep you up in all of these scenarios, and more. 
 
-You may start to think up increasingly unlikely disaster scenarios (the [transatlantic communcations cables](http://en.wikipedia.org/wiki/Transatlantic_communications_cable) are severed by a rogue submarine at the same time a zombie outbreak hits the east coast of the United States!) and try to figure out how to keep your site up. This is possible within the AWS infrastructure, although I won't have the room in this book to discuss the ramifications of the undead taking over multiple Amazon data centers. Sorry.
+> High availability can become an adventure all on its own. You may start thinking up increasingly unlikely disaster scenarios (the [transatlantic communcations cables](http://en.wikipedia.org/wiki/Transatlantic_communications_cable) are severed by a rogue submarine at the same time a zombie outbreak hits the east coast of the United States!) and come up with more and more creative solutions keep your site up. Keeping your site available in the face of this particular combination of unlikey events is actually possible within the AWS infrastructure! However, I won't have the room in this book to discuss the social and political ramifications of the undead and their insatiable hunger for brains. Sorry.
+
+So, this book is not claiming to be the One True Way™ to deploy your app. More like A Way that Works Great in Many Real World Scenarios™.
 
 ## Why you should trust me
 
@@ -76,6 +78,7 @@ We'll cover:
 * Scaling strategies and high availability with AWS
 * Continuous delivery/deployment
 * Tools to monitor your app's performance (New Relic) and errors (Sentry) once live
+* Upgrading services in the future
 
 ## What I assume you already know
 

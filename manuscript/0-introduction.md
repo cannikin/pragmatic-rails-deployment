@@ -1,16 +1,20 @@
 # Introduction
 
-Hello, world! The purpose of this book is to get your Ruby on Rails web app up and running in a free, fast, scalable environment. Specifically Amazon Web Services and its awesome suite of virtual servers, databases, file storage and other cloud infrastructure bits.
+Hello, world! The purpose of this book is to get your Ruby on Rails web app up and running in a free, fast, scalable environment. Specifically Amazon Web Services (AWS) and its awesome suite of virtual servers, databases, file storage and other cloud infrastructure bits.
 
-This book is geared towards the developer that has never deployed to production before, but still applies to a battle-hardened self-made dev ops engineer who just hasn't taken the plunge to AWS yet. Even if you have deployed to AWS chances are you'll pick up some new tricks in the following pages.
+This book is geared towards the developer that has maybe never deployed to production before, but the content still applies to a battle-hardened self-made dev ops engineer who just hasn't taken the plunge to AWS yet. Even if you have deployed to AWS chances are you'll pick up some new tricks in the following pages.
 
 ## Why I'm writing this book
 
 I think Infrastructure-as-a-Service, and AWS in particular, is one of the most profound changes in technology since the internet itself. Suddenly everyone has access to world-class hardware for literally pennies per hour. But like any new technology it's still somewhat like the wild, wild west: everyone has their own way to do things and conflicting information abounds.
 
-Then there's the _if you don't use this new tool you'll regret it_ advice and _how-the-big-guys-do-it_ blog posts. People get caught up in the hype when Facebook discusses their platform and how they deploy. When others blog and  cover these posts would declare "if you're not using Facebook's new deploy tool then your app isn't **web scale**!" But honestly, is your current project going to need to scale to Facebook levels in the near future? Probably not. Save yourself days and weeks of struggling to learn the latest and greatest deploy tools that were written by and for people with much different problems to solve than you have (or may ever have).
+As software folks we're especially prone to New Technology Syndrome: that need to experiment and use the latest and greatest new language/framework/tools. It's fun and it keeps your brain engaged because who doesn't like learning something new? It seems like very week there's a new Javascript single page app framework or package manager or module loading technique that everyone toutes as The One True [Whatever] to Rule Them All. How many of those libraries do you hear about a year later?
 
-What I'm presenting in this book is a no-nonsense approach to getting your web app online with a minimum of ceremony and complexity. Does [Chef](http://chef.io) have it's place? Absolutely. But Chef's learning curve is like walking up to the base of El Capitan. Unless you're deploying and maintaining dozens or hundreds of servers (like Facebook) I don't think that learning curve is worth it just to get your brand new app (with zero users) available to the world. As a former collegue was fond of saying: the juice isn't worth the squeeze. (Don't feel bad if you don't know what Chef is yet. We'll be discussing that and many more common, but at times unnecessary, deployment tools.)
+On the other side of the coin there are the established tools that, c'mon, if you consider yourself a professional you _must_ be using. If not then you're not _really_ serious about scaling your app and your infrastructure, so just go back to writing static sites for your uncle's restaurant. [Chef](http://chef.io) falls squarely into this camp. I don't recommend using Chef anywhere in these pages.
+
+Chef's learning curve is like walking up to the base of El Capitan. Unless you're deploying and maintaining hundreds or thousands of servers (like Facebook) I don't think that learning curve is worth it just to get your brand new app (with zero users) available to the world. As a former collegue was fond of saying: the juice isn't worth the squeeze. But I look at these tools like this: is your current project going to need to scale to Facebook levels in the near future? Probably not. Save yourself days and weeks of struggling to learn the latest and greatest deploy tools that were written by and for people with much different problems to solve than you have (or may ever have).
+
+Does Chef have it's place? Absolutely! Chef excels at essentially version controlling your server configuration so that if and when you need the latest MySQL development libraries installed you can record the fact that that dependency changed and be sure that all future new server setups include it. But I'll show you a way to achieve the same result by right-clicking in the AWS console and creating a snapshot of your server. When you start a new instance of that server it takes 30 seconds, not the 30 minutes it takes Chef to start a server, install dependiences from scratch, install Ruby from scratch, etc. As the title says, this is a pragmatic guide to deployment.
 
 That being said, your app should be prepared for reasonable growth and disaster recover:
 
@@ -31,7 +35,7 @@ I've been a professional web developer and designer since 1998.
 
 I've been deploying RoR applications in production since 2006 and have lived through the evolution of dedicated to virtual servers, FastCGI to Passenger to Mongrel to Thin to Unicorn, self to cloud hosting.
 
-I've been in charge of maintaining apps with one user (myself) to apps serving millions.
+I've been in charge of maintaining and deploying apps with one user (myself) to apps serving millions.
 
 I'm a full-time contract Web Developer (Software Engineer, Computer Programmer, pick your title) and a smattering of Dev Ops usually comes with the territory. I've found that when you start with a solid infrastructure setup then the dev ops part of the job takes care of itself for the most part.
 

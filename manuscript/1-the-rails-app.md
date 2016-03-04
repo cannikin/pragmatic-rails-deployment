@@ -9,7 +9,7 @@ Seeing as how this is a manual for deploying a Rails app we'll need an app to de
 * Image hosting (S3 and CloudFront)
 * Email delivery (SES)
 
-Don't worry about those acronyms yet—we'll talk all about them in the next chapter.
+Don't worry about those acronyms yet--we'll talk all about them in the next chapter.
 
 What better way to demonstrate something Rails-related than with a blog! Yes, yet another blog. This one has just enough features that we get to use each of those aforementioned AWS services:
 
@@ -31,21 +31,18 @@ I> As of March 2016 the app is written against Rails 5.0.0.beta3. I'll update th
 
 Once you've checked out the code you'll want to install the required gems:
 
-~~~
-bundle install
-~~~
+{linenos=off}
+        bundle install
 
 And create the development database:
 
-~~~
-bin/rails db:schema:load
-~~~
+{linenos=off}
+        bin/rails db:schema:load
 
 If you want to load some sample blog posts and comments then go ahead and seed the database:
 
-~~~
-bin/rails db:seed
-~~~
+{linenos=off}
+        bin/rails db:seed
 
 Q> ## What's with `bin/rails`? 
 Q>
@@ -55,9 +52,8 @@ Q> If you don't have any binstubs in your app code you can tell bundler to creat
 
 Start the server:
 
-~~~
-bin/rails s
-~~~
+{linenos=on}
+        bin/rails s
 
 And head over to http://localhost:3000 to see what we've got:
 
@@ -65,18 +61,27 @@ And head over to http://localhost:3000 to see what we've got:
 
 Watch out Wordpress!
 
-Play around to get a feel for how everything works. You can add a comment without being logged in, but to create a new blog post you'll need to click that "Login" link at the upper right. Email: _owner@blerg.com_ Password: _blerg_
+Play around to get a feel for how everything works. You can add a comment without being logged in, but to create a new blog post you'll need to click that **Login** link at the upper right. Email: _owner@blerg.com_ Password: _blerg_
 
 Once logged in you'll get a **New Post** button at the upper right. Click that, fill in the fields and you'll be Blerging in no time. (See what I did there?)
 
 [image]
 
-The blog supports Markdown[^markdown] which makes it easy to add some formatting to your posts. For simplicty of our demo app app you can attach a single image to your blog post using the **Add Image** file field. Currently the image is saved locally in carrierwave's[^carrierwave] default location of `public/uploads`. We'll be changing that soon.
+The blog supports Markdown[^markdown] which makes it easy to add some formatting to your posts. For simplicty you can attach a single image to your blog post using the **Add Image** file field. Currently the image is saved locally in carrierwave's[^carrierwave] default location of `public/uploads`.
 
 ## The code
 
-Let's take a look at some of the code.
+Let's take a look at some of the code. `config/routes.rb` is usually a good place to start poking around a new app:
 
+    Rails.application.routes.draw do
+      resources :posts do
+        resources :comments
+      end
+      resources :sessions, :only => [:new, :create, :destroy]
+      
+      root :to => 'posts#index'
+    end
+    <<(code/routes.rb)
 
 # TODO
 
@@ -84,7 +89,7 @@ Let's take a look at some of the code.
   * Can upload images (to include S3 + CloudFront)
   * memcached
   * delayed job
-  * mandrill
+  * SES
 * What state it should be in before we begin
   * Config in environment variables
   * dotenv
@@ -93,5 +98,5 @@ Let's take a look at some of the code.
 * ruby-install, chruby
 
 
-[^markdown] https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
-[^carreriwave] https://github.com/carrierwaveuploader/carrierwave
+[^markdown]: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+[^carrierwave]: https://github.com/carrierwaveuploader/carrierwave

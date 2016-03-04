@@ -2,7 +2,7 @@
 
 Hello, world! The purpose of this book is to get your Ruby on Rails web app up and running in a free, fast, scalable environment. Specifically Amazon Web Services (AWS) and its awesome suite of virtual servers, databases, file storage and other cloud infrastructure bits.
 
-This book is geared towards the developer that has maybe never deployed to production before, but the content still applies to a battle-hardened self-made dev ops engineer who just hasn't taken the plunge to AWS yet. Even if you have deployed to AWS chances are you'll pick up some new tricks in the following pages.
+This book is geared towards the developer that has maybe never deployed to production before, but the content still applies to a battle-hardened self-made devops engineer who just hasn't taken the plunge to AWS yet. Even if you have deployed to AWS chances are you'll pick up some new tricks in the following pages.
 
 ## Why I'm writing this book
 

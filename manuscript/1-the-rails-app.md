@@ -27,6 +27,8 @@ As we take a tour through the code we'll spot several areas of improvement to ge
 
 I> As of March 2016 the app is written against Rails 5.0.0.beta3. I'll update the code to the production release of Rails 5.0.0 and update the book if needed when the time comes.
 
+{pagebreak}
+
 ## Up and running
 
 Once you've checked out the code you'll want to install the required gems:
@@ -52,7 +54,7 @@ Q> If you don't have any binstubs in your app code you can tell bundler to creat
 
 Start the server:
 
-{linenos=on}
+{linenos=off}
         bin/rails s
 
 And head over to http://localhost:3000 to see what we've got:
@@ -73,7 +75,14 @@ The blog supports Markdown[^markdown] which makes it easy to add some formatting
 
 Let's take a look at some of the code. `config/routes.rb` is usually a good place to start poking around a new app:
 
-    <<(code/routes.rb)
+    Rails.application.routes.draw do
+      resources :posts do
+        resources :comments
+      end
+      resources :session, :only => [:new, :create, :destroy]
+
+      root :to => 'posts#index'
+    end
 
 # TODO
 

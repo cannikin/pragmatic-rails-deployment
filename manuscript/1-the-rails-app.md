@@ -33,17 +33,17 @@ I> As of March 2016 the app is written against Rails 5.0.0.beta3. I'll update th
 
 Once you've checked out the code you'll want to install the required gems:
 
-{linenos=off}
+{linenos=off lang="bash"}
         bundle install
 
 And create the development database:
 
-{linenos=off}
+{linenos=off lang="bash"}
         bin/rails db:schema:load
 
 If you want to load some sample blog posts and comments then go ahead and seed the database:
 
-{linenos=off}
+{linenos=off lang="bash"}
         bin/rails db:seed
 
 Q> ## What's with `bin/rails`? 
@@ -54,7 +54,7 @@ Q> If you don't have any binstubs in your app code you can tell bundler to creat
 
 Start the server:
 
-{linenos=off}
+{linenos=off lang="bash"}
         bin/rails s
 
 And head over to http://localhost:3000 to see what we've got:
@@ -70,6 +70,8 @@ Once logged in you'll get a **New Post** button at the upper right. Click that, 
 ![](images/1-2.png)
 
 The blog supports Markdown[^markdown] which makes it easy to add some formatting to your posts. For simplicty you can attach a single image to your blog post using the **Add Image** file field. Currently the image is saved locally in carrierwave's[^carrierwave] default location of `public/uploads`.
+
+{pagebreak}
 
 ## The code
 

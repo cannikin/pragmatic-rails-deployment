@@ -73,14 +73,6 @@ The blog supports Markdown[^markdown] which makes it easy to add some formatting
 
 Let's take a look at some of the code. `config/routes.rb` is usually a good place to start poking around a new app:
 
-    Rails.application.routes.draw do
-      resources :posts do
-        resources :comments
-      end
-      resources :sessions, :only => [:new, :create, :destroy]
-      
-      root :to => 'posts#index'
-    end
     <<(code/routes.rb)
 
 # TODO

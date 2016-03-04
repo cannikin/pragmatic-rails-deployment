@@ -57,7 +57,7 @@ Start the server:
 
 And head over to http://localhost:3000 to see what we've got:
 
-[image]
+![](images/1-1.png)
 
 Watch out Wordpress!
 
@@ -65,7 +65,7 @@ Play around to get a feel for how everything works. You can add a comment withou
 
 Once logged in you'll get a **New Post** button at the upper right. Click that, fill in the fields and you'll be Blerging in no time. (See what I did there?)
 
-[image]
+![](images/1-2.png)
 
 The blog supports Markdown[^markdown] which makes it easy to add some formatting to your posts. For simplicty you can attach a single image to your blog post using the **Add Image** file field. Currently the image is saved locally in carrierwave's[^carrierwave] default location of `public/uploads`.
 

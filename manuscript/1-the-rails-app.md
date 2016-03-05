@@ -81,10 +81,74 @@ Let's take a look at some of the code. `config/routes.rb` is usually a good plac
       resources :posts do
         resources :comments
       end
-      resources :session, :only => [:new, :create, :destroy]
-
+      controller :sessions do
+        get  'login'  => :new
+        post 'login'  => :create
+        get  'logout' => :destroy
+      end
       root :to => 'posts#index'
     end
+
+We've got a resource for posts and a subresource for comments. We have a pseudo-resource for sessions: it has the `new`, `create` and `destroy` endpoints representing the login page, `POST` login and logout. Finally we have the root of the site render the same thing as the `index` action on `posts`.
+
+We have a very simple login/logout system comprised of a few methods in `ApplicationController`:
+
+    class ApplicationController < ActionController::Base
+
+      protect_from_forgery with: :exception
+      helper_method :logged_in?, :current_user
+
+      def logged_in?
+        current_user.present?
+      end
+
+      def current_user
+        @current_user ||= User.find(session[:user_id]) if session[:user_id]
+      end
+
+      def log_in_user(user)
+        session[:user_id] = user.id
+      end
+
+      def log_out_user
+        reset_session
+      end
+
+      def require_session
+        unless logged_in?
+          flash[:error] = 'You must be logged in to do that!'
+          redirect_to login_url
+        end
+      end
+
+    end
+
+This is how I learned to build session handling thanks to the original [Agile Web Development with Rails](https://pragprog.com/book/rails4/agile-web-development-with-rails-4) book and it's how I tend to start all new apps unless the session-handling needs warrant upgrading to something like [Authlogic](https://github.com/binarylogic/authlogic).
+
+Logging someone in means putting their `user.id` in session. Someone is considered logged in if that `session` key is present and a `User` record is found for it. `current_user` is available in controllers and views and returns that found user (if any). Logging someone out means resetting their session, which wipes the `user_id` key from `session`. Finally we have the `require_session` method which can go into a `before_action` to enforce that someone be logged in before accessing a certain action. They're redirected to the login page if not logged in.
+
+The controllers are pretty straight forward--`PostsController` for posts, `CommentsController` for comments and `SessionsController` for login/logout.
+
+The views are equally as simple. There is a `posts/_post.html.erb` partial which renders a single post. When viewing `posts#show` you'll also see a list of comments. There's a `comments/_comment.html.erb` partial that renders those. `posts/_form.html.erb` is the form for creating a new post and `comments/_form.html.erb` is the form for creating a new comment.
+
+    views
+    |
+    |- comments
+    |  |- _form.html.erb
+    |  |- _post.html.erb
+    |
+    |- posts
+    |  |- _form.html.erb
+    |  |- _post.html.erb
+    |  |- edit.html.erb
+    |  |- index.html.erb
+    |  |- new.html.erb
+    |  |- show.html.erb
+    |
+    |- sessions
+       |- new.html.erb
+
+
 
 # TODO
 

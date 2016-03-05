@@ -182,7 +182,7 @@ The views are equally as simple. There is a `posts/_post.html.erb` partial which
     |- sessions
        |- new.html.erb
 
-# Mailers
+### Mailers
 
 When leaving a comment you can choose to be notified (via email) if there are any followup comments after yours. That's handled by the `CommentMailer`. Emails are created and delivered by the `CommentController` after a comment has been successfully created:
 
@@ -212,10 +212,17 @@ If you think about it this is a spot that can create some serious performance pr
 
 Ideally the page would return as fast as if there were zero notifications to send no matter how many actually need to go out. When we think about deploying to a production environment this is the kind of code that is begging to be improved to keep the user's experience streamlined.
 
-# Uploading
+### Uploading
 
-This app uses Carrierwave to handle image uploading and resizing.
+This app uses Carrierwave to handle image uploading and resizing. We resize any uploaded images to twice the width of the site. This makes sure that everything looks nice and sharp on a retina display (2x pixel density). Unfortunately this simple solution means that someone on mobile will need to download an entire 1440px-wide image even though an iPhone 6, for example, only needs an image to be 750px wide for retina.
 
+Here's another area ripe for improvement as we think about going to production.
+
+### Assets
+
+Nothing out of the ordinary here. We've got a couple SCSS files--[Bootstrap](http://v4-alpha.getbootstrap.com/), one for the login page and one for posts (which covers everything else). The only thing out of the ordinary is the load order in `application.scss`. `bootstrap` contains the framework, then I `require_self` to get the shared styles in `application.scss` set, then `require_tree .` to include everything else.
+
+The app doesn't currently have any custom Javascript, just the defaults of `jquery`, `jquery-rails` and `turbolinks`.
 
 # TODO
 

@@ -153,7 +153,7 @@ We have a very simple login/logout system comprised of a few methods in `Applica
 
     end
 
-This is how I learned to build session handling thanks to the original [Agile Web Development with Rails](https://pragprog.com/book/rails4/agile-web-development-with-rails-4) book and it's how I tend to start all new apps unless the session-handling needs warrant upgrading to something like [Authlogic](https://github.com/binarylogic/authlogic).
+This is how I learned to build session handling thanks to the original [Agile Web Development with Rails](https://pragprog.com/book/rails4/agile-web-development-with-rails-4) book and it's how I tend to start all new apps unless the session-handling warrants upgrading to something like [Authlogic](https://github.com/binarylogic/authlogic).
 
 Logging someone in means putting their `user.id` in session. Someone is considered logged in if that `session` key is present and a `User` record is found for it. `current_user` is available in controllers and views and returns that found user (if any). Logging someone out means resetting their session, which wipes the `user_id` key from `session`. Finally we have the `require_session` method which can go into a `before_action` to enforce that someone be logged in before accessing a certain action. They're redirected to the login page if not logged in.
 
@@ -182,13 +182,13 @@ The views are equally as simple. There is a `posts/_post.html.erb` partial which
     |- sessions
        |- new.html.erb
 
-Do you see any performance improvements that can be made when rendering posts and comments? What happens if a post a dozen comments? What about a _dozen_ dozen? That's a lot of data to grab from the database on every request. This is a place that's ripe for caching.
+Do you see any performance improvements that can be made when rendering posts and comments? What happens if a post has a dozen comments? What about a _dozen_ dozen? That's a lot of data to grab from the database on every request. This is a place that's ripe for caching.
 
 How about the homepage? There's currently no limit on the number of posts shown. One improvement would be to paginate that homepage. But even if we only showed 10 posts that's still 10 posts worth of data to pull from database on each and every request--especially considering that a post (probably) never changes! It's the same text over and over again.
 
 ### Mailers
 
-When leaving a comment you can choose to be notified (via email) if there are any followup comments after yours. That's handled by the `CommentMailer`. Emails are created and delivered by the `CommentController` after a comment has been successfully created:
+When leaving a comment you can choose to be notified (via email) if there are any additional comments after yours. That's handled by the `CommentMailer`. Emails are created and delivered by the `CommentController` after a comment has been successfully created:
 
 ~~~
     def create
@@ -222,13 +222,13 @@ This app uses Carrierwave to handle image uploading and resizing. We resize any 
 
 Here's another area ripe for improvement as we think about going to production.
 
-The app currently saves images in `public/uploads`. This is actually a viable solution if you plan on only having one web server--it can happily serve images from here forever, and pretty quickly, too. However we're going to build a robust production environment including load balanced web servers. If one web server saves the image to its local disk the others behind the LB can't find it without setting up complex disk shares and mounts. 
+The app currently saves images in `public/uploads`. This is actually a viable solution if you plan on only having one web server--it can happily serve images from here forever, and pretty quickly, too. However, we're going to build a robust production environment including load balanced web servers. If one web server saves the image to its local disk the others behind the LB can't find it without setting up complex disk shares and mounts. 
 
 It's much simpler, and more robust, to get our images onto a content delivery network (CDN) and distributed around the globe for the fastest possible delivery to our users.
 
 ### Assets
 
-Nothing out of the ordinary here. We've got a couple SCSS files--[Bootstrap](http://v4-alpha.getbootstrap.com/), one for the login page and one for posts (which covers everything else). The only thing out of the ordinary is the load order in `application.scss`. `bootstrap` contains the framework, then I `require_self` to get the shared styles in `application.scss` set, then `require_tree .` to include everything else.
+Nothing out of the ordinary here. We've got a couple SCSS files--[Bootstrap](http://v4-alpha.getbootstrap.com/), one stylesheet for the login page and one for posts (which covers everything else). The only thing out of the ordinary is the load order in `application.scss`. `bootstrap` contains the framework, then I `require_self` to get the shared styles in `application.scss` set, then `require_tree .` to include everything else.
 
 The app doesn't currently have any custom Javascript, just the defaults of `jquery`, `jquery-rails` and `turbolinks`.
 
